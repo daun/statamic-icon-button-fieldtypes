@@ -2,7 +2,7 @@
 
 Button group fieldtype with icons and tooltips for a compact way of offering multiple choices.
 
-![Example icon group fields](art/icon-group-fields-section.png)
+![Example icon group fields](art/icon-group-fields-section-tooltip.png)
 
 ## Installation
 
