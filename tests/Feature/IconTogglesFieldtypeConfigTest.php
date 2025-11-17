@@ -1,6 +1,6 @@
 <?php
 
-use Daun\StatamicIconToggle\Fieldtypes\IconToggles;
+use Daun\StatamicIconButtons\Fieldtypes\IconToggles;
 use Facades\Statamic\Fields\FieldtypeRepository;
 use Illuminate\Validation\ValidationException;
 
