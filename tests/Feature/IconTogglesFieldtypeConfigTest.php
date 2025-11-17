@@ -1,12 +1,12 @@
 <?php
 
-use Daun\StatamicIconGroup\Fieldtypes\IconGroup;
+use Daun\StatamicIconToggle\Fieldtypes\IconToggles;
 use Facades\Statamic\Fields\FieldtypeRepository;
 use Illuminate\Validation\ValidationException;
 
-function iconGroupConfigFields(array $values)
+function iconTogglesConfigFields(array $values)
 {
-    $instance = new IconGroup();
+    $instance = new IconToggles();
     $fieldtype = FieldtypeRepository::find($instance->handle()) ?? $instance;
 
     return $fieldtype
@@ -16,7 +16,7 @@ function iconGroupConfigFields(array $values)
 }
 
 test('throws a validation error when icon is missing from option', function () {
-    $fields = iconGroupConfigFields([
+    $fields = iconTogglesConfigFields([
         'options' => [
             [
                 'key' => 'one',
@@ -51,13 +51,13 @@ test('does not throw a validation error when all options have icons', function (
         ],
     ];
 
-    $fields = iconGroupConfigFields($values);
+    $fields = iconTogglesConfigFields($values);
 
     expect($fields->validate())->toEqual($values);
 });
 
 test('does not throw a validation error when label is missing from option', function () {
-    $fields = iconGroupConfigFields([
+    $fields = iconTogglesConfigFields([
         'options' => [
             [
                 'key' => 'one',
