@@ -2,10 +2,7 @@
 
 namespace Tests;
 
-use BlastCloud\Guzzler\Expectation;
-use BlastCloud\Guzzler\UsesGuzzler;
 use Daun\StatamicIconGroup\ServiceProvider as AddonServiceProvider;
-use Illuminate\Support\Facades\Http;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Statamic\Addons\Manifest;
 use Statamic\Providers\StatamicServiceProvider;
@@ -18,8 +15,6 @@ abstract class TestCase extends OrchestraTestCase
 {
     use PreventSavingStacheItemsToDisk;
     use ResolvesStatamicConfig;
-    use UsesGuzzler;
-
 
     protected function getPackageProviders($app)
     {
