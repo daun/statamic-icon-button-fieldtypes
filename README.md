@@ -73,7 +73,7 @@ playback:
 
 ![Example icon group fields](art/icon-toggles.png)
 
-## On or Off: Icon Toggle
+## Booleans: Icon Toggle
 
 The **Icon Toggle** fieldtype extends the native [Toggle](https://statamic.dev/fieldtypes/toggle)
 fieldtype and allows switching a single value on or off.
@@ -88,8 +88,7 @@ featured:
 + button_icon: star
 ```
 
-Note that the option here
-is called `button_icon` because the `icon` key is a reserved key by Statamic.
+Note that the option here is called `button_icon` because `icon` key is a reserved key by Statamic.
 
 ## Custom Icon Sets
 
@@ -97,7 +96,8 @@ Icons are pulled from the built-in control panel icon set. To use icons from a d
 
 ### Example: Lucide
 
-The example steps below will install and use icons from the [Lucide](https://lucide.dev/icons/) icon set.
+The example steps below will install and use icons from the [Lucide](https://lucide.dev/icons/) icon
+set, used in the examples above.
 
 Install icon set:
 
