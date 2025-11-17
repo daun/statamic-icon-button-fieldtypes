@@ -1,11 +1,13 @@
 {
-    "name": "daun/statamic-icon-group-fieldtype",
-    "description": "Icon-only button group fieldtype for Statamic",
+    "name": "daun/statamic-icon-button-fieldtypes",
+    "description": "Icon-only button fieldtypes for Statamic",
     "license": "MIT",
     "type": "statamic-addon",
     "keywords": [
         "statamic",
-        "fieldtype"
+        "fieldtype",
+        "icon",
+        "button"
     ],
     "authors": [
         {
@@ -15,7 +17,7 @@
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/daun/statamic-icon-group-fieldtype",
+    "homepage": "https://github.com/daun/statamic-icon-button-fieldtypes",
     "support": {
         "email": "post@philippdaun.net"
     },
@@ -33,7 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Daun\\StatamicIconGroup\\": "src"
+            "Daun\\StatamicIconButtons\\": "src"
         }
     },
     "autoload-dev": {
@@ -57,12 +59,12 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Daun\\StatamicIconGroup\\ServiceProvider"
+                "Daun\\StatamicIconButtons\\ServiceProvider"
             ]
         },
         "statamic": {
-            "description": "Icon-only button group for compact selection of options.",
-            "name": "Icon Group Fieldtype"
+            "description": "Icon-only button fieldtypes for compact toggles and switches.",
+            "name": "Icon Button Fieldtypes"
         }
     },
     "scripts": {

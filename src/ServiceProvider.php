@@ -1,6 +1,6 @@
 <?php
 
-namespace Daun\StatamicIconGroup;
+namespace Daun\StatamicIconButtons;
 
 use Statamic\Providers\AddonServiceProvider;
 

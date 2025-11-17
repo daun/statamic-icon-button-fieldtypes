@@ -9,5 +9,5 @@
 
 - Initial release
 
-[0.2.0]: https://github.com/daun/statamic-icon-group-fieldtype/releases/tag/0.2.0
-[0.1.0]: https://github.com/daun/statamic-icon-group-fieldtype/releases/tag/0.1.0
+[0.2.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.2.0
+[0.1.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.1.0
