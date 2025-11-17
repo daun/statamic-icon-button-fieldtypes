@@ -10,6 +10,7 @@
             :icon-only="true"
             :value="option.value"
             :variant="value == option.value ? 'pressed' : 'default'"
+            :size="config.size || 'base'"
             v-tooltip="option.label || option.value"
             @click="updateSelectedOption(option.value)"
         >
