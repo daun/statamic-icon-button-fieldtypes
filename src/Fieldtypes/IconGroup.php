@@ -58,6 +58,15 @@ class IconGroup extends ButtonGroup
                 'type' => 'text',
                 'placeholder' => 'default',
             ],
+            'size' => [
+                'display' => __('Button Size'),
+                'type' => 'button_group',
+                'options' => [
+                    'sm' => __('Small'),
+                    'base' => __('Medium'),
+                ],
+                'default' => 'base',
+            ],
         ];
 
         return $config;

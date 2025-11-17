@@ -11,6 +11,7 @@
             :value="option.value"
             :variant="value == option.value ? 'pressed' : 'default'"
             :aria-label="option.label || option.value"
+            :size="config.size || 'base'"
             v-tooltip="option.label || option.value"
             @click="updateSelectedOption(option.value)"
         >
