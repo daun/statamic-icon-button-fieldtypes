@@ -71,8 +71,6 @@ playback:
 +     icon: captions
 ```
 
-![Example icon group fields](art/icon-toggles.png)
-
 ## Booleans: Icon Toggle
 
 The **Icon Toggle** fieldtype extends the native [Toggle](https://statamic.dev/fieldtypes/toggle)
