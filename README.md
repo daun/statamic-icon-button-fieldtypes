@@ -1,6 +1,6 @@
-# Statamic Icon Group Fieldtype
+# Statamic Icon Button Fieldtypes
 
-Button group fieldtype with icons and tooltips for a compact way of offering multiple choices.
+Icon-only button fieldtypes for compact toggles and switches.
 
 ![Example icon group fields](art/icon-group-fields-section-tooltip.png)
 
@@ -9,7 +9,7 @@ Button group fieldtype with icons and tooltips for a compact way of offering mul
 Install the addon via Composer:
 
 ```bash
-composer require daun/statamic-icon-group-fieldtype
+composer require daun/statamic-icon-button-fieldtypes
 ```
 
 ## Usage

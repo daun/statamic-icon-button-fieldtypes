@@ -1,6 +1,6 @@
 <?php
 
-namespace Daun\StatamicIconGroup\Fieldtypes;
+namespace Daun\StatamicIconButtons\Fieldtypes;
 
 use Statamic\Fieldtypes\ButtonGroup;
 
