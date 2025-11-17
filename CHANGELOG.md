@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.0] - 2025-11-17
+
+- Add boolean fieldtype
+- Add multiple choice fieldtype
+
 ## [0.2.0] - 2025-11-17
 
 - Make button size configurable
@@ -9,5 +14,6 @@
 
 - Initial release
 
+[0.3.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.3.0
 [0.2.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.2.0
 [0.1.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.1.0
