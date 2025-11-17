@@ -2,7 +2,7 @@
 
 Icon-only button fieldtypes for compact toggles and switches.
 
-![Example icon group fields](art/icon-group-fields-section-tooltip.png)
+![Example icon button fields](art/icon-buttons.png)
 
 ## Installation
 
@@ -12,9 +12,21 @@ Install the addon via Composer:
 composer require daun/statamic-icon-button-fieldtypes
 ```
 
-## Usage
+## Fieldtypes
 
-The fieldtype extends the native [Button Group](https://statamic.dev/fieldtypes/button_group) fieldtype. If you already have such a field in a blueprint, you can change its type to `icon_group` and add an `icon` key to each option.
+The addon ships with three fieldtypes, each extending a native Statamic fieldtype:
+
+- **Icon Group** extends the [Button Group](https://statamic.dev/fieldtypes/button_group) fieldtype
+- **Icon Toggles** extends the [Checkboxes](https://statamic.dev/fieldtypes/checkboxes) fieldtype
+- **Icon Toggle** extends the [Toggle](https://statamic.dev/fieldtypes/toggle) fieldtype
+
+## Single Choice: Icon Group
+
+The **Icon Group** fieldtype extends the native [Button Group](https://statamic.dev/fieldtypes/button_group)
+fieldtype and allows selecting a single option from a predefined set of options.
+
+![Example icon group fields](art/icon-group.png)
+
 
 ```diff
 visibility:
@@ -32,11 +44,56 @@ visibility:
 +     icon: eye-slash
 ```
 
-To create a new field using this type, add the field from the control panel and choose `Button Group` as fieldtype.
+## Multiple Choice: Icon Toggles
+
+The **Icon Toggles** fieldtype extends the native [Checkboxes](https://statamic.dev/fieldtypes/checkboxes)
+fieldtype and allows selecting one or more options from a predefined set of options.
+
+![Example icon toggles field](art/icon-toggles.png)
+
+```diff
+playback:
+- type: checkboxes
++ type: icon_toggles
+  display: Playback options
+  options:
+    -
+      value: sound
+      key: sound
++     icon: volume
+    -
+      value: Loop
+      key: loop
++     icon: repeat
+    -
+      value: Captions
+      key: captions
++     icon: captions
+```
+
+![Example icon group fields](art/icon-toggles.png)
+
+## On or Off: Icon Toggle
+
+The **Icon Toggle** fieldtype extends the native [Toggle](https://statamic.dev/fieldtypes/toggle)
+fieldtype and allows switching a single value on or off.
+
+![Example icon toggles field](art/icon-toggle.png)
+
+```diff
+featured:
+  display: Featured
+- type: toggle
++ type: icon_toggle
++ button_icon: star
+```
+
+Note that the option here
+is called `button_icon` because the `icon` key is a reserved key by Statamic.
 
 ## Custom Icon Sets
 
-Icons are pulled from the built-in control panel icon set. To use icons from a different set, change the `Icon set` option.
+Icons are pulled from the built-in control panel icon set. To use icons from a different set, change the `set` option of each field to the desired set.
 
 ### Example: Lucide
 
@@ -74,6 +131,7 @@ visibility:
     -
       value: Public
       key: public
+      icon: eye
     -
       value: Private
       key: private
