@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Daun\StatamicIconGroup\ServiceProvider as AddonServiceProvider;
+use Daun\StatamicIconButtons\ServiceProvider as AddonServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Statamic\Addons\Manifest;
 use Statamic\Providers\StatamicServiceProvider;
