@@ -16,11 +16,11 @@ composer require daun/statamic-icon-button-fieldtypes
 
 The addon ships with three fieldtypes, each extending a native Statamic fieldtype:
 
-- **Icon Group** extends the [Button Group](https://statamic.dev/fieldtypes/button_group) fieldtype
-- **Icon Toggles** extends the [Checkboxes](https://statamic.dev/fieldtypes/checkboxes) fieldtype
-- **Icon Toggle** extends the [Toggle](https://statamic.dev/fieldtypes/toggle) fieldtype
+- Single-choice **[Icon Group](#icon-group)** extends the native Button Group
+- Multi-Choice **[Icon Toggles](#icon-toggles)** extends the Checkboxes fieldtype
+- Boolean **[Icon Toggle](#icon-toggle)** extends the Toggle fieldtype
 
-## Single Choice: Icon Group
+### Icon Group
 
 The **Icon Group** fieldtype extends the native [Button Group](https://statamic.dev/fieldtypes/button_group)
 fieldtype and allows selecting a single option from a predefined set of options.
@@ -44,7 +44,7 @@ visibility:
 +     icon: eye-slash
 ```
 
-## Multiple Choice: Icon Toggles
+## Icon Toggles
 
 The **Icon Toggles** fieldtype extends the native [Checkboxes](https://statamic.dev/fieldtypes/checkboxes)
 fieldtype and allows selecting one or more options from a predefined set of options.
@@ -71,7 +71,7 @@ playback:
 +     icon: captions
 ```
 
-## Booleans: Icon Toggle
+## Icon Toggle
 
 The **Icon Toggle** fieldtype extends the native [Toggle](https://statamic.dev/fieldtypes/toggle)
 fieldtype and allows switching a single value on or off.
