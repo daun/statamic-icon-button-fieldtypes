@@ -1,0 +1,76 @@
+{
+    "name": "daun/statamic-icon-group-fieldtype",
+    "description": "Icon-only button group fieldtype for Statamic",
+    "license": "MIT",
+    "type": "statamic-addon",
+    "keywords": [
+        "statamic",
+        "fieldtype"
+    ],
+    "authors": [
+        {
+            "name": "Philipp Daun",
+            "email": "post@philippdaun.net",
+            "homepage": "https://philippdaun.net",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/daun/statamic-icon-group-fieldtype",
+    "support": {
+        "email": "post@philippdaun.net"
+    },
+    "require": {
+        "php": "^8.2",
+        "statamic/cms": "^6.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^2.9 || ^3.0",
+        "laravel/pint": "^1.14",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^9.5 || ^10.0",
+        "pestphp/pest": "^3.3",
+        "pestphp/pest-plugin-laravel": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daun\\StatamicIconGroup\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "pixelfear/composer-dist-plugin": true
+        },
+        "audit": {
+            "block-insecure": false
+        },
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "alpha",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daun\\StatamicIconGroup\\ServiceProvider"
+            ]
+        },
+        "statamic": {
+            "description": "Icon-only button group for compact selection of options.",
+            "name": "Icon Group Fieldtype"
+        }
+    },
+    "scripts": {
+        "analyse": "./vendor/bin/phpstan analyse --memory-limit=2G",
+        "format": "./vendor/bin/pint",
+        "lint": "./vendor/bin/pint --test",
+        "test": "./vendor/bin/pest",
+        "test:ci": "./vendor/bin/pest --coverage-clover coverage.xml",
+        "test:coverage": "./vendor/bin/pest --coverage"
+    }
+}
