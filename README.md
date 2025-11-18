@@ -27,21 +27,20 @@ fieldtype and allows selecting a single option from a predefined set of options.
 
 ![Example icon group fields](art/icon-group.png)
 
-
 ```diff
-visibility:
+align:
+  display: Align
 - type: button_group
 + type: icon_group
-  display: Visibility
   options:
     -
-      value: Public
-      key: public
-+     icon: eye
+      value: Left
+      key: left
++     icon: align-start-vertical
     -
-      value: Private
-      key: private
-+     icon: eye-slash
+      value: Right
+      key: right
++     icon: align-end-vertical
 ```
 
 ## Icon Toggles
@@ -53,9 +52,9 @@ fieldtype and allows selecting one or more options from a predefined set of opti
 
 ```diff
 playback:
+  display: Playback options
 - type: checkboxes
 + type: icon_toggles
-  display: Playback options
   options:
     -
       value: sound
