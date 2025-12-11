@@ -1,23 +1,25 @@
 <template>
-    <ui-button-group ref="buttonGroup">
-        <ui-button
-            v-for="(option, $index) in options"
-            ref="button"
-            :disabled="config.disabled"
-            :key="$index"
-            :name="name"
-            :read-only="isReadOnly"
-            :icon-only="true"
-            :value="option.value"
-            :variant="value == option.value ? 'pressed' : 'default'"
-            :aria-label="option.label || option.value"
-            :size="config.size || 'base'"
-            v-tooltip="option.label || option.value"
-            @click="updateSelectedOption(option.value)"
-        >
-            <ui-icon :name="option.icon" :set="config.set ?? 'default'" />
-        </ui-button>
-    </ui-button-group>
+    <div class="flex">
+        <ui-button-group ref="buttonGroup">
+            <ui-button
+                v-for="(option, $index) in options"
+                ref="button"
+                :disabled="config.disabled"
+                :key="$index"
+                :name="name"
+                :read-only="isReadOnly"
+                :icon-only="true"
+                :value="option.value"
+                :variant="value == option.value ? 'pressed' : 'default'"
+                :aria-label="option.label || option.value"
+                :size="config.size || 'base'"
+                v-tooltip="option.label || option.value"
+                @click="updateSelectedOption(option.value)"
+            >
+                <ui-icon :name="option.icon" :set="config.set ?? 'default'" />
+            </ui-button>
+        </ui-button-group>
+    </div>
 </template>
 
 <script>
