@@ -1,6 +1,6 @@
 <template>
-    <ButtonGroup ref="buttonGroup">
-        <Button
+    <ui-button-group ref="buttonGroup">
+        <ui-button
             v-for="(option, $index) in options"
             ref="button"
             :disabled="config.disabled"
@@ -15,22 +15,16 @@
             v-tooltip="option.label || option.value"
             @click="updateSelectedOption(option.value)"
         >
-            <Icon :name="option.icon" :set="config.set ?? 'default'" />
-        </Button>
-    </ButtonGroup>
+            <ui-icon :name="option.icon" :set="config.set ?? 'default'" />
+        </ui-button>
+    </ui-button-group>
 </template>
 
 <script>
 import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
-import { Button, ButtonGroup, Icon } from '@statamic/cms/ui';
 
 export default {
     mixins: [Fieldtype],
-    components: {
-        Button,
-        ButtonGroup,
-        Icon,
-    },
 
     data() {
         return {
