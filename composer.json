@@ -55,7 +55,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "alpha",
     "extra": {
         "laravel": {
             "providers": [
