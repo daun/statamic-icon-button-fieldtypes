@@ -2,7 +2,7 @@
 
 ## [1.0.0] - 2026-06-30
 
-- Stable release
+- First stable release (no breaking changes)
 - Implement overflow behavior from core button group components
 - Update documentation on custom icon sets
 
