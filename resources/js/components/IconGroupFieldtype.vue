@@ -1,5 +1,5 @@
 <template>
-    <ui-button-group orientation="auto" ref="buttonGroup">
+    <ui-button-group overflow="stack">
         <ui-button
             v-for="(option, $index) in options"
             ref="button"
@@ -26,20 +26,6 @@ import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
 export default {
     mixins: [Fieldtype],
 
-    data() {
-        return {
-            resizeObserver: null,
-        };
-    },
-
-    mounted() {
-        this.setupResizeObserver();
-    },
-
-    beforeUnmount() {
-        this.resizeObserver.disconnect();
-    },
-
     computed: {
         options() {
             return this.normalizeInputOptions(this.config.options);
@@ -56,25 +42,6 @@ export default {
     methods: {
         updateSelectedOption(newValue) {
             this.update(this.value == newValue && this.config.clearable ? null : newValue);
-        },
-
-        setupResizeObserver() {
-            this.resizeObserver = new ResizeObserver(() => {
-                this.handleWrappingOfNode(this.$refs.buttonGroup.$el);
-            });
-            this.resizeObserver.observe(this.$refs.buttonGroup.$el);
-        },
-
-        handleWrappingOfNode(node) {
-            const lastEl = node.lastChild;
-
-            if (!lastEl) return;
-
-            node.classList.remove('btn-vertical');
-
-            if (lastEl.offsetTop > node.clientTop) {
-                node.classList.add('btn-vertical');
-            }
         },
 
         focus() {
