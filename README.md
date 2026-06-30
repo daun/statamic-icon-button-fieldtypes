@@ -89,50 +89,44 @@ Note that the option here is called `button_icon` because `icon` key is a reserv
 
 ## Custom Icon Sets
 
-Icons are pulled from the built-in control panel icon set. To use icons from a different set, change the `set` option of each field to the desired set.
+Icons are pulled from the built-in icon set. To use icons from a different set, [register a custom icon set](https://statamic.dev/fieldtypes/icon#icon-sets) and change the `set` option of each field to the desired set.
 
 ### Example: Lucide
 
-The example steps below will install and use icons from the [Lucide](https://lucide.dev/icons/) icon
-set, used in the examples above.
-
-Install icon set:
+Install and use the [Lucide](https://lucide.dev/icons/) icon set, used in the examples above.
 
 ```sh
 npm install lucide-static
 ```
 
-Register icon set in control panel:
+Register the icon set in your service provider.
 
-```js
-// resource/js/cp.js
+```php
+use Statamic\Facades\Icon; 
 
-import { registerIconSet } from '@statamic/cms/ui';
-
-Statamic.booting(() => {
-    registerIconSet('lucide', import.meta.glob(
-        '../../node_modules/lucide-static/icons/*.svg',
-        { query: '?raw', import: 'default' }
-    ));
-});
+class AppServiceProvider extends ServiceProvider {
+  public function register() {
+    Icon::register('lucide', base_path('node_modules/lucide-static/icons'));
+  }
+}
 ```
 
-Switch field to use icon set:
+Switch the field to use the custom icon set.
 
 ```diff
-visibility:
-  type: icon_group
-  display: Visibility
+featured:
+  display: Featured
+  type: icon_toggle
+  button_icon: star
 + set: lucide
-  options:
-    -
-      value: Public
-      key: public
-      icon: eye
-    -
-      value: Private
-      key: private
-      icon: eye-off
+```
+
+### Example: Local SVGs
+
+You can also use local SVG icons in your resources folder.
+
+```php
+Icon::register('payments', resource_path('icons/payments'));
 ```
 
 ## License
