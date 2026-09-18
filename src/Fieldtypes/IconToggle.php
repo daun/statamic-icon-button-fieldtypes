@@ -2,11 +2,13 @@
 
 namespace Daun\StatamicIconButtons\Fieldtypes;
 
+use Daun\StatamicIconButtons\Fieldtypes\Concerns\HasIconConfigFields;
 use Daun\StatamicIconButtons\Fieldtypes\Concerns\MigratesLegacyConfig;
 use Statamic\Fieldtypes\Toggle;
 
 class IconToggle extends Toggle
 {
+    use HasIconConfigFields;
     use MigratesLegacyConfig;
 
     protected static $handle = 'icon_toggle';
@@ -30,28 +32,24 @@ class IconToggle extends Toggle
         $config = parent::configFieldItems();
 
         $config[0]['fields'] = [
-            'set' => [
-                'display' => __('Icon Set'),
-                'instructions' => __('statamic::fieldtypes.icon.config.set'),
-                'type' => 'text',
-                'placeholder' => 'default',
-            ],
-            'icon' => [
-                'display' => __('Icon'),
-                'type' => 'text',
+            'set' => $this->iconSetConfigField(),
+            'icon' => $this->iconConfigField([
+                'instructions' => __('Set an icon to be shown as the toggle.'),
                 'validate' => 'required',
-            ],
-            'icon_when_true' => [
+            ]),
+            'icon_when_true' => $this->iconConfigField([
                 'display' => __('Icon when True'),
-                'type' => 'text',
-            ],
+                'instructions' => __('Set an icon to be shown when the toggle\'s value is true.'),
+            ]),
             ...$config[0]['fields'], // Inline label config
             'tooltip' => [
                 'display' => __('Tooltip'),
+                'instructions' => __('Set a tooltip to be shown when the toggle is focused or hovered.'),
                 'type' => 'text',
             ],
             'tooltip_when_true' => [
                 'display' => __('Tooltip when True'),
+                'instructions' => __('Set a tooltip to be shown when the toggle\'s value is true.'),
                 'type' => 'text',
                 'default' => '',
                 'width' => '50',

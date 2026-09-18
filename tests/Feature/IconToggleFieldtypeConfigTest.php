@@ -7,7 +7,7 @@ use Statamic\Fields\Field;
 
 function iconToggleFieldtype(): IconToggle
 {
-    $instance = new IconToggle();
+    $instance = new IconToggle;
 
     return FieldtypeRepository::find($instance->handle()) ?? $instance;
 }

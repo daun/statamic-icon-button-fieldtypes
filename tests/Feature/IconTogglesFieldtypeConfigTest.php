@@ -6,7 +6,7 @@ use Illuminate\Validation\ValidationException;
 
 function iconTogglesConfigFields(array $values)
 {
-    $instance = new IconToggles();
+    $instance = new IconToggles;
     $fieldtype = FieldtypeRepository::find($instance->handle()) ?? $instance;
 
     return $fieldtype
