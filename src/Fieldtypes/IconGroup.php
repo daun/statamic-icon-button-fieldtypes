@@ -3,11 +3,13 @@
 namespace Daun\StatamicIconButtons\Fieldtypes;
 
 use Daun\StatamicIconButtons\Fieldtypes\Concerns\HasIconConfigFields;
+use Daun\StatamicIconButtons\Fieldtypes\Concerns\ModifiesConfigFields;
 use Statamic\Fieldtypes\ButtonGroup;
 
 class IconGroup extends ButtonGroup
 {
     use HasIconConfigFields;
+    use ModifiesConfigFields;
 
     protected static $handle = 'icon_group';
 
@@ -52,17 +54,10 @@ class IconGroup extends ButtonGroup
                 'full_width_setting' => true,
             ],
             'set' => $this->iconSetConfigField(),
-            'size' => [
-                'display' => __('Button Size'),
-                'type' => 'button_group',
-                'options' => [
-                    'sm' => __('Small'),
-                    'base' => __('Medium'),
-                ],
-                'default' => 'base',
-            ],
         ];
 
-        return $config;
+        return $this->appendAppearanceConfigFields($config, [
+            'size' => $this->buttonSizeConfigField(),
+        ]);
     }
 }

@@ -28,6 +28,20 @@ trait HasIconConfigFields
         return DynamicIcon::configField($setField, $overrides);
     }
 
+    protected function buttonSizeConfigField(array $overrides = []): array
+    {
+        return [
+            'display' => __('Button Size'),
+            'type' => 'button_group',
+            'options' => [
+                'sm' => __('Small'),
+                'base' => __('Medium'),
+            ],
+            'default' => 'base',
+            ...$overrides,
+        ];
+    }
+
     protected function iconSetOptions(): array
     {
         return Icons::sets()

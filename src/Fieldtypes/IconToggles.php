@@ -3,11 +3,13 @@
 namespace Daun\StatamicIconButtons\Fieldtypes;
 
 use Daun\StatamicIconButtons\Fieldtypes\Concerns\HasIconConfigFields;
+use Daun\StatamicIconButtons\Fieldtypes\Concerns\ModifiesConfigFields;
 use Statamic\Fieldtypes\Checkboxes;
 
 class IconToggles extends Checkboxes
 {
     use HasIconConfigFields;
+    use ModifiesConfigFields;
 
     protected static $handle = 'icon_toggles';
 
@@ -19,7 +21,8 @@ class IconToggles extends Checkboxes
 
     protected function configFieldItems(): array
     {
-        $config = parent::configFieldItems();
+        // The core checkbox appearance (default/switch/button) doesn't apply to icon toggles
+        $config = $this->removeConfigFields(parent::configFieldItems(), 'appearance');
 
         $config[0]['fields'] = [
             ...$config[0]['fields'],
@@ -54,17 +57,10 @@ class IconToggles extends Checkboxes
                 'full_width_setting' => true,
             ],
             'set' => $this->iconSetConfigField(),
-            'size' => [
-                'display' => __('Button Size'),
-                'type' => 'button_group',
-                'options' => [
-                    'sm' => __('Small'),
-                    'base' => __('Medium'),
-                ],
-                'default' => 'base',
-            ],
         ];
 
-        return $config;
+        return $this->appendAppearanceConfigFields($config, [
+            'size' => $this->buttonSizeConfigField(),
+        ]);
     }
 }

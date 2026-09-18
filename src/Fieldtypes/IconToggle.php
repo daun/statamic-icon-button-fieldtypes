@@ -4,12 +4,14 @@ namespace Daun\StatamicIconButtons\Fieldtypes;
 
 use Daun\StatamicIconButtons\Fieldtypes\Concerns\HasIconConfigFields;
 use Daun\StatamicIconButtons\Fieldtypes\Concerns\MigratesLegacyConfig;
+use Daun\StatamicIconButtons\Fieldtypes\Concerns\ModifiesConfigFields;
 use Statamic\Fieldtypes\Toggle;
 
 class IconToggle extends Toggle
 {
     use HasIconConfigFields;
     use MigratesLegacyConfig;
+    use ModifiesConfigFields;
 
     protected static $handle = 'icon_toggle';
 
@@ -54,17 +56,10 @@ class IconToggle extends Toggle
                 'default' => '',
                 'width' => '50',
             ],
-            'size' => [
-                'display' => __('Button Size'),
-                'type' => 'button_group',
-                'options' => [
-                    'sm' => __('Small'),
-                    'base' => __('Medium'),
-                ],
-                'default' => 'base',
-            ],
         ];
 
-        return $config;
+        return $this->appendAppearanceConfigFields($config, [
+            'size' => $this->buttonSizeConfigField(),
+        ]);
     }
 }
