@@ -25,12 +25,12 @@ class IconToggle extends Toggle
                 'type' => 'text',
                 'placeholder' => 'default',
             ],
-            'button_icon' => [
+            'icon' => [
                 'display' => __('Icon'),
                 'type' => 'text',
                 'validate' => 'required',
             ],
-            'button_icon_when_true' => [
+            'icon_when_true' => [
                 'display' => __('Icon when True'),
                 'type' => 'text',
             ],
