@@ -23,7 +23,7 @@
     },
     "require": {
         "php": "^8.2",
-        "statamic/cms": "^6.0"
+        "statamic/cms": "^6.33"
     },
     "require-dev": {
         "larastan/larastan": "^2.9 || ^3.0",

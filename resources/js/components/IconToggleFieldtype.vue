@@ -46,9 +46,10 @@ export default {
         },
 
         buttonIcon() {
-            return this.value
-                ? this.config.button_icon_when_true || this.config.button_icon
-                : this.config.button_icon;
+            const icon = this.config.button_icon || this.config.icon;
+            const iconWhenTrue = this.config.button_icon_when_true || this.config.icon_when_true;
+
+            return this.value ? iconWhenTrue || icon : icon;
         },
 
         replicatorPreview() {

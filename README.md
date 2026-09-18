@@ -82,10 +82,23 @@ featured:
   display: Featured
 - type: toggle
 + type: icon_toggle
-+ button_icon: star
++ icon: star
 ```
 
-Note that the option here is called `button_icon` because `icon` key is a reserved key by Statamic.
+Optionally, show a different icon while the toggle is on:
+
+```diff
+featured:
+  display: Featured
+  type: icon_toggle
+  icon: star
++ icon_when_true: star-filled
+```
+
+> [!NOTE]
+> These options were called `button_icon` and `button_icon_when_true`, as `icon`
+> was reserved by Statamic 6.32 and below. The old keys are still read and get
+> rewritten the next time the field is saved in the control panel.
 
 ## Custom Icon Sets
 
@@ -117,7 +130,7 @@ Switch the field to use the custom icon set.
 featured:
   display: Featured
   type: icon_toggle
-  button_icon: star
+  icon: star
 + set: lucide
 ```
 
