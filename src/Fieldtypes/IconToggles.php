@@ -2,10 +2,13 @@
 
 namespace Daun\StatamicIconButtons\Fieldtypes;
 
+use Daun\StatamicIconButtons\Fieldtypes\Concerns\HasIconConfigFields;
 use Statamic\Fieldtypes\Checkboxes;
 
 class IconToggles extends Checkboxes
 {
+    use HasIconConfigFields;
+
     protected static $handle = 'icon_toggles';
 
     protected static $title = 'Icon Toggles';
@@ -43,23 +46,14 @@ class IconToggles extends Checkboxes
                     'icon' => [
                         'handle' => 'icon',
                         'display' => __('Icon'),
-                        'field' => [
-                            // 'type' => 'icon',
-                            'type' => 'text',
-                            'validate' => 'required',
-                        ],
+                        'field' => $this->iconConfigField(['validate' => 'required']),
                     ],
                 ],
                 'add_row' => __('Add Option'),
                 'fullscreen' => false,
                 'full_width_setting' => true,
             ],
-            'set' => [
-                'display' => __('Icon Set'),
-                'instructions' => __('statamic::fieldtypes.icon.config.set'),
-                'type' => 'text',
-                'placeholder' => 'default',
-            ],
+            'set' => $this->iconSetConfigField(),
             'size' => [
                 'display' => __('Button Size'),
                 'type' => 'button_group',

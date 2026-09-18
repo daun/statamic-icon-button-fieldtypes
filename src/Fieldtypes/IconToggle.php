@@ -2,11 +2,13 @@
 
 namespace Daun\StatamicIconButtons\Fieldtypes;
 
+use Daun\StatamicIconButtons\Fieldtypes\Concerns\HasIconConfigFields;
 use Daun\StatamicIconButtons\Fieldtypes\Concerns\MigratesLegacyConfig;
 use Statamic\Fieldtypes\Toggle;
 
 class IconToggle extends Toggle
 {
+    use HasIconConfigFields;
     use MigratesLegacyConfig;
 
     protected static $handle = 'icon_toggle';
@@ -30,21 +32,9 @@ class IconToggle extends Toggle
         $config = parent::configFieldItems();
 
         $config[0]['fields'] = [
-            'set' => [
-                'display' => __('Icon Set'),
-                'instructions' => __('statamic::fieldtypes.icon.config.set'),
-                'type' => 'text',
-                'placeholder' => 'default',
-            ],
-            'icon' => [
-                'display' => __('Icon'),
-                'type' => 'text',
-                'validate' => 'required',
-            ],
-            'icon_when_true' => [
-                'display' => __('Icon when True'),
-                'type' => 'text',
-            ],
+            'set' => $this->iconSetConfigField(),
+            'icon' => $this->iconConfigField(['validate' => 'required']),
+            'icon_when_true' => $this->iconConfigField(['display' => __('Icon when True')]),
             ...$config[0]['fields'], // Inline label config
             'tooltip' => [
                 'display' => __('Tooltip'),
