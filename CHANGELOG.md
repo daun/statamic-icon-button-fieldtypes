@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.0] - 2026-09-18
+
+- Use native icon picker field for choosing icons
+- Use unprefixed `icon` config keys, [now allowed by Statamic](https://github.com/statamic/cms/pull/15444)
+
 ## [1.0.0] - 2026-06-30
 
 - First stable release (no breaking changes)
@@ -24,6 +29,7 @@
 
 - Initial release
 
+[1.1.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/1.1.0
 [1.0.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/1.0.0
 [0.4.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.4.0
 [0.3.0]: https://github.com/daun/statamic-icon-button-fieldtypes/releases/tag/0.3.0
