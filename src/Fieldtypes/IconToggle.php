@@ -33,15 +33,23 @@ class IconToggle extends Toggle
 
         $config[0]['fields'] = [
             'set' => $this->iconSetConfigField(),
-            'icon' => $this->iconConfigField(['validate' => 'required']),
-            'icon_when_true' => $this->iconConfigField(['display' => __('Icon when True')]),
+            'icon' => $this->iconConfigField([
+                'instructions' => __('Set an icon to be shown as the toggle.'),
+                'validate' => 'required',
+            ]),
+            'icon_when_true' => $this->iconConfigField([
+                'display' => __('Icon when True'),
+                'instructions' => __('Set an icon to be shown when the toggle\'s value is true.'),
+            ]),
             ...$config[0]['fields'], // Inline label config
             'tooltip' => [
                 'display' => __('Tooltip'),
+                'instructions' => __('Set a tooltip to be shown when the toggle is focused or hovered.'),
                 'type' => 'text',
             ],
             'tooltip_when_true' => [
                 'display' => __('Tooltip when True'),
+                'instructions' => __('Set a tooltip to be shown when the toggle\'s value is true.'),
                 'type' => 'text',
                 'default' => '',
                 'width' => '50',
