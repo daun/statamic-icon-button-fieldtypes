@@ -24,6 +24,17 @@ trait ModifiesConfigFields
         return $config;
     }
 
+    protected function prependConfigSection(array $config, string $display, array $fields): array
+    {
+        if (($index = $this->findConfigSection($config, $display)) !== null) {
+            $config[$index]['fields'] = [...$fields, ...$config[$index]['fields']];
+
+            return $config;
+        }
+
+        return [['display' => $display, 'fields' => $fields], ...$config];
+    }
+
     /**
      * Remove config fields inherited from the parent fieldtype that don't apply here.
      */

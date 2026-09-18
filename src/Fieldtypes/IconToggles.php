@@ -56,10 +56,10 @@ class IconToggles extends Checkboxes
                 'fullscreen' => false,
                 'full_width_setting' => true,
             ],
-            'set' => $this->iconSetConfigField(),
         ];
 
         return $this->appendAppearanceConfigFields($config, [
+            'set' => $this->iconSetConfigField(),
             'size' => $this->buttonSizeConfigField(),
         ]);
     }

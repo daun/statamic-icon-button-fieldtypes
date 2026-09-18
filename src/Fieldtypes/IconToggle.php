@@ -31,9 +31,7 @@ class IconToggle extends Toggle
 
     protected function configFieldItems(): array
     {
-        $config = parent::configFieldItems();
-
-        $config[0]['fields'] = [
+        $config = $this->prependConfigSection(parent::configFieldItems(), __('Appearance'), [
             'set' => $this->iconSetConfigField(),
             'icon' => $this->iconConfigField([
                 'instructions' => __('Set an icon to be shown as the toggle.'),
@@ -43,11 +41,15 @@ class IconToggle extends Toggle
                 'display' => __('Icon when True'),
                 'instructions' => __('Set an icon to be shown when the toggle\'s value is true.'),
             ]),
-            ...$config[0]['fields'], // Inline label config
+        ]);
+
+        return $this->appendAppearanceConfigFields($config, [
             'tooltip' => [
                 'display' => __('Tooltip'),
                 'instructions' => __('Set a tooltip to be shown when the toggle is focused or hovered.'),
                 'type' => 'text',
+                'default' => '',
+                'width' => '50',
             ],
             'tooltip_when_true' => [
                 'display' => __('Tooltip when True'),
@@ -56,9 +58,6 @@ class IconToggle extends Toggle
                 'default' => '',
                 'width' => '50',
             ],
-        ];
-
-        return $this->appendAppearanceConfigFields($config, [
             'size' => $this->buttonSizeConfigField(),
         ]);
     }
